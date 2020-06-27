@@ -21,7 +21,7 @@ function submitForm(event) {
         employeeAnnualSalary: $('#js-input-employeeAnnualSalary').val()
     };
 
-    allEmployees.employee = parseFloat(allEmployees.employee);
+    // allEmployees.employee = parseFloat(allEmployees.employee);
 
     $('#js-input-firstName').val('');
     $('#js-input-lastName').val('');
@@ -41,7 +41,7 @@ function render() {
     let totalAnnualSalary = 0;
 
     for (let employee of allEmployees) {
-        totalAnnualSalary += employee.employeeAnnualSalary
+        totalAnnualSalary += parseFloat(employee.employeeAnnualSalary)
         $('#js-table-body').append(`
         <tr>
              <td>${employee.firstName}</td>
@@ -54,9 +54,11 @@ function render() {
     }
 
     console.log(totalAnnualSalary);
+    // take total salary and divide/ by 12
+    //once i have monthly, i want to chance the .text of an html element to show the monthly rate.
 }
 
-function removeEmployee() {
-    $(this).remove();
-    letremoveEmployee = $('.removeButton').data(employee);
-}
+// function removeEmployee() {
+//     $(this).remove();
+//     letremoveEmployee = $('.removeButton').data(employee);
+// }
