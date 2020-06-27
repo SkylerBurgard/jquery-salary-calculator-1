@@ -1,7 +1,7 @@
 $(document).ready(onReady);
 
 // const employeeInfo = [];
-const monthlyBudget = 0;
+const monthlyBudget = 20000;
 const allEmployees = [];
 
 function onReady() {
@@ -32,6 +32,31 @@ function submitForm(event) {
     // console.table(employee);
     allEmployees.push(employee);
     console.table(allEmployees);
+    render();
 }
 
-function render() {}
+function render() {
+    $('#js-table-body').empty();
+
+    let totalAnnualSalary = 0;
+
+    for (let employee of allEmployees) {
+        totalAnnualSalary += employee.employeeAnnualSalary
+        $('#js-table-body').append(`
+        <tr>
+             <td>${employee.firstName}</td>
+             <td>${employee.lastName}</td>
+             <td>${employee.employeeID}</td>
+             <td>${employee.jobTitle}</td>
+             <td>${employee.employeeAnnualSalary}</td>
+        </tr>
+        `)
+    }
+
+    console.log(totalAnnualSalary);
+}
+
+function removeEmployee() {
+    $(this).remove();
+    letremoveEmployee = $('.removeButton').data(employee);
+}
