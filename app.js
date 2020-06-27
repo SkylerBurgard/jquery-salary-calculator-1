@@ -2,7 +2,7 @@ $(document).ready(onReady);
 
 // const employeeInfo = [];
 const monthlyBudget = 0;
-const employeeAnnualSalary = [];
+const allEmployees = [];
 
 function onReady() {
     $('#js-salary-calc-form').on('submit', submitForm);
@@ -21,10 +21,17 @@ function submitForm(event) {
         employeeAnnualSalary: $('#js-input-employeeAnnualSalary').val()
     };
 
-    employeeAnnualSalary.employee = parseFloat(employeeAnnualSalary.employee);
+    allEmployees.employee = parseFloat(allEmployees.employee);
 
-    console.table(employee);
+    $('#js-input-firstName').val('');
+    $('#js-input-lastName').val('');
+    $('#js-input-employeeID').val('');
+    $('#js-input-jobTitle').val('');
+    $('#js-input-employeeAnnualSalary').val('');
 
+    // console.table(employee);
+    allEmployees.push(employee);
+    console.table(allEmployees);
 }
 
 function render() {}
