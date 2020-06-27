@@ -3,6 +3,7 @@ $(document).ready(onReady);
 // const employeeInfo = [];
 const monthlyBudget = 20000;
 const allEmployees = [];
+let totalMonthlyCost = 0;
 
 function onReady() {
     $('#js-salary-calc-form').on('submit', submitForm);
@@ -41,7 +42,6 @@ function render() {
     let totalAnnualSalary = 0;
 
     for (let employee of allEmployees) {
-        totalAnnualSalary += parseFloat(employee.employeeAnnualSalary)
         $('#js-table-body').append(`
         <tr>
              <td>${employee.firstName}</td>
@@ -51,11 +51,18 @@ function render() {
              <td>${employee.employeeAnnualSalary}</td>
         </tr>
         `)
+        totalAnnualSalary += parseFloat(employee.employeeAnnualSalary);
+        console.log(totalAnnualSalary);
+        totalMonthlyCost = totalAnnualSalary / 12;
+        $('#js-total-monthly-cost').empty();
+        $("#js-total-monthly-cost").append(`
+        <h2>Total Monthly Cost: $${totalMonthlyCost.toFixed(0)}</h2>
+        `);
     }
 
-    console.log(totalAnnualSalary);
+    // console.log(totalAnnualSalary);
     // take total salary and divide/ by 12
-    //once i have monthly, i want to chance the .text of an html element to show the monthly rate.
+    //once i have monthly, i want to change the .text of an html element to show the monthly rate.
 }
 
 // function removeEmployee() {
