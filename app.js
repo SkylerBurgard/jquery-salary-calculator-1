@@ -1,22 +1,30 @@
 $(document).ready(onReady);
 
-const monthlyBudget = 20000;
+// const employeeInfo = [];
+const monthlyBudget = 0;
+const employeeAnnualSalary = [];
 
 function onReady() {
-    $('#js-salary-calc-form').on('submit', submitEmployee);
+    $('#js-salary-calc-form').on('submit', submitForm);
 
-    // render();
+
 }
 
-function submitEmployee(event) {
+function submitForm(event) {
     event.preventDefault();
 
-    const submitEmployee = {
-        firstName: $('js-input-firstName').val(),
-        lastName: $('js-input-lastName').val(),
-        employeeID: $('js-input-employeeID').val(),
-        jobTitle: $('js-input-jobTitle').val(),
-        employeeAnnualSalary: $('js-input-employeeAnnualSalary').val()
+    const employee = {
+        firstName: $('#js-input-firstName').val(),
+        lastName: $('#js-input-lastName').val(),
+        employeeID: $('#js-input-employeeID').val(),
+        jobTitle: $('#js-input-jobTitle').val(),
+        employeeAnnualSalary: $('#js-input-employeeAnnualSalary').val()
     };
-    console.log(submitEmployee);
+
+    employeeAnnualSalary.employee = parseFloat(employeeAnnualSalary.employee);
+
+    console.table(employee);
+
 }
+
+function render() {}
