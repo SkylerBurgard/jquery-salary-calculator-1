@@ -7,9 +7,14 @@ let totalMonthlyCost = 0;
 
 function onReady() {
     $('#js-salary-calc-form').on('submit', submitForm);
-
+    $('#js-table-body').on('click', ".js-row", deleteButton)
 
 }
+
+function deleteButton() {
+    $(this).remove();
+}
+
 
 function submitForm(event) {
     event.preventDefault();
@@ -43,12 +48,14 @@ function render() {
 
     for (let employee of allEmployees) {
         $('#js-table-body').append(`
-        <tr>
+        <tr class="js-row">
              <td>${employee.firstName}</td>
              <td>${employee.lastName}</td>
              <td>${employee.employeeID}</td>
              <td>${employee.jobTitle}</td>
              <td>${employee.employeeAnnualSalary}</td>
+             <td> <button> Delete
+             </button></td>
         </tr>
         `)
         totalAnnualSalary += parseFloat(employee.employeeAnnualSalary);
@@ -58,6 +65,11 @@ function render() {
         $("#js-total-monthly-cost").append(`
         <h2>Total Monthly Cost: $${totalMonthlyCost.toFixed(0)}</h2>
         `);
+        if (totalMonthlyCost > 20000) {
+            $('#js-total-monthly-cost').addClass('red');
+        } else {
+            $('#js-total-monthly-cost').removeClass('red')
+        }
     }
 
     // console.log(totalAnnualSalary);
