@@ -6,8 +6,8 @@
 
 # How to use:
 
-#### The user must first correctly enter/fill all required input fields starting with an employees full name, their individual ID number, job title, and annual salary. After the user has all inputs fields properly filled out, they must then click the 'submit' button, which then gathers the inputted information, whilst also combing it with the other employees submitted. The Employee Salary calculator app then calculates it to display the monthly budget to the user.
+### The user must first correctly enter/fill all required input fields starting with an employees full name, their individual ID number, job title, and annual salary. After the user has all inputs fields properly filled out, they must then click the 'submit' button, which then gathers the inputted information, whilst also combing it with the other employees submitted. The Employee Salary calculator app then calculates it to display the monthly budget to the user.
 
 # Technologies used:
 
-#### HTML/CSS, Java, JavaScript
+#### HTML/CSS, JavaScript
